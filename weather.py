@@ -14,7 +14,7 @@ class WeatherOut(BaseModel):
 @limiter.limit("5/minute")
 async def get_weather(request:Request,city: str):
     """getting weather of the city"""
-    api_key = "d185dbd8a35b6fec502e3d035204962e"
+    api_key = "apikeyyy###"
     url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}&units=metric"
 
     async with httpx.AsyncClient() as client:
@@ -26,3 +26,4 @@ async def get_weather(request:Request,city: str):
         "temperature": data["main"]["temp"],
         "description": data["weather"][0]["description"]
     }
+
